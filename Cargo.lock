@@ -290,6 +290,7 @@ checksum = "d897f394bad6a705d5f4104762e116a75639e470d80901eed05a860a95cb1904"
 name = "hydra-check-action-rs"
 version = "0.1.0"
 dependencies = [
+ "log",
  "reqwest",
  "simple_logger",
 ]

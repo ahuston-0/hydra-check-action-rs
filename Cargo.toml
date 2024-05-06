@@ -6,6 +6,7 @@ edition = "2021"
 rust-version = "1.67"
 
 [dependencies]
+log = "0.4.21"
 reqwest = "0.12.4"
 simple_logger = "5.0.0"
 

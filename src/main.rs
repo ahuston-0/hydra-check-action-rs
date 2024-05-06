@@ -4,7 +4,6 @@ use std::fs::write;
 use std::process::exit;
 
 fn main() {
-    prelude();
 
     let github_output_path = env::var("GITHUB_OUTPUT").unwrap();
 
