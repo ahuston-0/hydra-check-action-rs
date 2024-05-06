@@ -1,8 +1,11 @@
+use hydra_check_action_rs::{init_logs, prelude::*};
 use std::env;
 use std::fs::write;
 use std::process::exit;
 
 fn main() {
+    prelude();
+
     let github_output_path = env::var("GITHUB_OUTPUT").unwrap();
 
     let args: Vec<String> = env::args().collect();
