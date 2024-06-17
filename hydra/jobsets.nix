@@ -39,7 +39,7 @@ let
       enabled = 1;
       type = 1;
       hidden = false;
-      checkinterval = 300; # every 6 months
+      checkinterval = 3000; # every 60 minutes
       enableemail = false;
       emailoverride = "";
     };
