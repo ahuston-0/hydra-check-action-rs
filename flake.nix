@@ -126,5 +126,11 @@
         };
 
       }
-    );
+    )
+    // {
+      hydraJobs = import ./hydra/jobs.nix {
+        inherit inputs;
+        inherit (self) outputs;
+      };
+    };
 }
