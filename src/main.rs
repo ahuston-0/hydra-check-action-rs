@@ -1,5 +1,4 @@
-use hydra_check_action_rs::hydra::{hydra_builder::HydraInstanceBuilder,
-                                   hydra_api};
+use hydra_check_action_rs::hydra::{hydra_api, hydra_builder::HydraInstanceBuilder};
 use std::env;
 use std::fs::write;
 use std::process::exit;
@@ -25,10 +24,12 @@ fn main() {
         .jobset(String::from("branch-main"))
         .build();
 
-    let body = hydra_api::get_projects(hydra_instance).unwrap().text().unwrap();
+    let body = hydra_api::get_projects(hydra_instance)
+        .unwrap()
+        .text()
+        .unwrap();
 
-
-    println!("{}",body);
+    println!("{}", body);
     // error!("{:#?}",body);
     // let _ = write(github_output_path, format!("hi"));
 }
