@@ -1,21 +1,11 @@
-// use hydra_check_action_rs::{init_logs, prelude::*};
+use hydra_check_action_rs::hydra::hydra_builder::HydraInstanceBuilder;
 use std::env;
 use std::fs::write;
 use std::process::exit;
-use futures::executor::block_on;
-use reqwest::{Error,Response};
-
-async fn async_main(args: Vec<String>) -> String {                                               >{
-    let body = reqwest::get("https://www.rust-lang.org")
-        .await?
-        .text()
-        .await?;
-    return body;
-}
 
 fn main() {
     let github_output_path =
-        env::var("GITHUB_OUTPUT").unwrap_or("/var/logs/hydra-check-action.log".to_string());
+        env::var("GITHUB_OUTPUT").unwrap_or("/var/log/hydra-check-action.log".to_string());
 
     let args: Vec<String> = env::args().collect();
     let error = &args[1];
@@ -26,5 +16,14 @@ fn main() {
         exit(1);
     }
 
-    write(github_output_path,format!(async_main(args).unwrap()));
+    let _hydra_instance = HydraInstanceBuilder::new()
+        .hydra_url(String::from("https://hydra.alicehuston.xyz"))
+        .project(String::from("nix-dotfiles-build"))
+        .jobset(String::from("branch-main"))
+        .build();
+    // let hydra_instance = "https://hydra.alicehuston.xyz";
+    // let body = get_projects(hydra_instance).unwrap();
+
+    // error!("{:#?}",body);
+    // let _ = write(github_output_path, format!("hi"));
 }

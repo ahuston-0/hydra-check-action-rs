@@ -4,11 +4,13 @@ description = "Check Hydra CI status"
 version = "0.1.0"
 edition = "2021"
 rust-version = "1.67"
+license = "MIT"
 
 [dependencies]
-futures = "0.3.30"
 log = "0.4.21"
-reqwest = "0.12.4"
+reqwest = { version = "0.12.4", features = ["blocking"] }
 simple_logger = "5.0.0"
+tracing = "0.1.40"
+tracing-subscriber = "0.3.18"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
