@@ -1,7 +1,7 @@
 {
   "enabled": 1,
   "hidden": false,
-  "description": "RAD Development infrastructure",
+  "description": "Hydra Check Github Action",
   "nixexprinput": "nixexpr",
   "nixexprpath": "hydra/jobsets.nix",
   "checkinterval": 600,
@@ -12,7 +12,7 @@
   "type": 0,
   "inputs": {
     "nixexpr": {
-      "value": "https://github.com/RAD-Development/nix-dotfiles main",
+      "value": "https://github.com/ahuston-0/hydra-check-action-rs main",
       "type": "git",
       "emailresponsible": false
     },
@@ -23,12 +23,12 @@
     },
     "pulls": {
       "type": "githubpulls",
-      "value": "RAD-Development nix-dotfiles",
+      "value": "ahuston-0 hydra-check-action-rs",
       "emailresponsible": false
     },
     "branches": {
       "type": "github_refs",
-      "value": "RAD-Development nix-dotfiles heads -",
+      "value": "ahuston-0 hydra-check-action-rs heads -",
       "emailresponsible": false
     }
   }
