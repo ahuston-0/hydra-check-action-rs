@@ -1,9 +1,10 @@
 use reqwest::{
     blocking::{Client, Response},
     header::ACCEPT,
-    Result,
+    Result, StatusCode,
 };
 
+use super::hydra_api_schema::{HydraJobset, HydraProject};
 use super::hydra_builder::HydraInstance;
 
 fn get_wrapper(url: &str) -> Result<Response> {
@@ -13,28 +14,42 @@ fn get_wrapper(url: &str) -> Result<Response> {
         .send()
 }
 
-pub fn get_projects(hydra_instance: HydraInstance) -> Result<Response> {
+pub fn get_projects(hydra_instance: &HydraInstance) -> Result<Vec<HydraProject>> {
     get_wrapper(hydra_instance.hydra_url.as_str())
+        .unwrap()
+        .json::<Vec<HydraProject>>()
 }
 
-pub fn get_jobsets(hydra_instance: HydraInstance) -> Result<Response> {
-    get_wrapper(
+pub fn get_jobsets(hydra_instance: &HydraInstance) -> Result<Vec<HydraJobset>> {
+    let resp  = get_wrapper(
         format!(
             "{}/api/jobsets?project={}",
             hydra_instance.hydra_url, hydra_instance.project
         )
         .as_str(),
-    )
+    ).unwrap();
+
+    match resp.status() {
+        StatusCode::OK => resp.json::<Vec<HydraJobset>>(),
+        StatusCode::NOT_FOUND => reqwest::Error(resp),
+        _ => panic!("Status code not expected")
+    }
 }
 
-pub fn get_project_by_name(hydra_instance: HydraInstance) -> Result<Response> {
-    get_wrapper(
+pub fn get_project_by_name(hydra_instance: HydraInstance) -> Result<HydraJobset> {
+    let resp = get_wrapper(
         format!(
             "{}/projects/{}",
             hydra_instance.hydra_url, hydra_instance.project
         )
         .as_str(),
-    )
+    ).unwrap();
+
+    match resp.status() {
+        StatusCode::OK => resp.json::<HydraJobset>(),
+        StatusCode::NOT_FOUND => reqwest::Error(resp),
+        _ => panic!("Status code not expected")
+    }
 }
 
 pub fn get_jobset(hydra_instance: HydraInstance) -> Result<Response> {
@@ -84,3 +99,5 @@ pub fn get_build(hydra_instance: HydraInstance) -> Result<Response> {
         .as_str(),
     )
 }
+
+// TODO: https://github.com/seanmonstar/reqwest/issues/154#issuecomment-1552850065

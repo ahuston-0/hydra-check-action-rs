@@ -24,12 +24,15 @@ fn main() {
         .jobset(String::from("branch-main"))
         .build();
 
-    let body = hydra_api::get_projects(hydra_instance)
-        .unwrap()
-        .text()
-        .unwrap();
+    let body = hydra_api::get_projects(&hydra_instance).unwrap();
 
-    println!("{}", body);
+    println!("jobsets for project {}:  {:?}", body[0].displayname,body[0].jobsets);
+
+    let body = hydra_api::get_jobsets(&hydra_instance).unwrap();
+
+    println!("jobset {} for project {}", body[0].name, body[0].project);
+
+
     // error!("{:#?}",body);
     // let _ = write(github_output_path, format!("hi"));
 }
