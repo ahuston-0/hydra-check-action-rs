@@ -4,7 +4,7 @@ use serde::Deserialize;
 
 pub type Result<T> = std::result::Result<T, reqwest::Error>;
 
-#[derive(Debug,Deserialize)]
+#[derive(Debug, Deserialize)]
 pub struct HydraProject {
     pub displayname: String,
     pub description: String,
@@ -16,8 +16,8 @@ pub struct HydraProject {
     pub name: String,
 }
 
-#[derive(Debug,Deserialize)]
-pub struct HydraJobset {
+#[derive(Debug, Deserialize)]
+pub struct HydraJobsetOverview {
     pub name: String,
     pub project: String,
     pub nrtotal: u64,
@@ -32,12 +32,12 @@ pub struct HydraJobset {
     pub triggertime: Option<u64>,
 }
 
-#[derive(Debug,Deserialize)]
+#[derive(Debug, Deserialize)]
 pub struct HydraError {
     pub error: String,
 }
 
-#[derive(Debug,Deserialize)]
+#[derive(Debug, Deserialize)]
 pub struct HydraJobsetInput {
     #[serde(alias = "type")]
     pub inputtype: String,
@@ -46,8 +46,8 @@ pub struct HydraJobsetInput {
     pub jobsetinputalts: Vec<String>,
 }
 
-#[derive(Debug,Deserialize)]
-pub struct HydraJobsetDetails {
+#[derive(Debug, Deserialize)]
+pub struct HydraJobset {
     pub triggertime: Option<u64>,
     pub enableemail: bool,
     pub jobsetinputs: HashMap<String, HydraJobsetInput>,
@@ -72,7 +72,7 @@ pub struct HydraJobsetDetails {
     pub errortime: Option<u64>,
 }
 
-#[derive(Debug,Deserialize)]
+#[derive(Debug, Deserialize)]
 pub struct HydraEvalInput {
     #[serde(alias = "type")]
     pub inputtype: String,
@@ -80,11 +80,11 @@ pub struct HydraEvalInput {
     pub revision: String,
 
     // cannot find any record of a type for these two fields... need to investigate
-    pub dependency: Option<()>,
-    pub value: Option<()>,
+    pub dependency: Option<String>,
+    pub value: Option<String>,
 }
 
-#[derive(Debug,Deserialize)]
+#[derive(Debug, Deserialize)]
 pub struct HydraEval {
     pub builds: Vec<u64>,
     pub jobsetevalinputs: HashMap<String, HydraEvalInput>,
@@ -92,10 +92,55 @@ pub struct HydraEval {
     pub hasnewbuilds: u8,
 }
 
-#[derive(Debug,Deserialize)]
+#[derive(Debug, Deserialize)]
 pub struct HydraEvalPaginated {
     pub first: String,
     pub last: String,
     pub next: Option<String>,
     pub evals: Vec<HydraEval>,
+}
+
+#[derive(Deserialize)]
+pub struct HydraBuildProduct {
+    filesize: Option<u64>,
+    defaultpath: String,
+    name: String,
+    #[serde(alias = "type")]
+    buildtype: String,
+    sha256hash: Option<String>,
+    subtype: String,
+    path: String,
+}
+
+#[derive(Deserialize)]
+pub struct HydraBuildOutput {
+    path: String,
+}
+
+#[derive(Deserialize)]
+pub struct HydraBuildMetrics {
+    name: String,
+    value: String,
+    unit: String,
+}
+
+#[derive(Deserialize)]
+pub struct HydraBuild {
+    buildproducts: HashMap<String, HydraBuildProduct>,
+    id: u64,
+    buildstatus: u64,
+    nixname: String,
+    finished: u64,
+    jobsetevals: Vec<u64>,
+    stoptime: Option<u64>,
+    system: String,
+    drvpath: String,
+    buildoutputs: HashMap<String, HydraBuildOutput>,
+    job: String,
+    jobset: String,
+    buildmetrics: HashMap<String, HydraBuildMetrics>,
+    priority: u64,
+    project: String,
+    starttime: u64,
+    timestamp: u64,
 }

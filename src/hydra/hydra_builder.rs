@@ -1,9 +1,10 @@
-#[derive(Clone,Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct HydraInstance {
     pub hydra_url: String,
     pub project: String,
     pub jobset: Option<String>,
     pub build: Option<u64>,
+    pub eval: Option<u64>,
 }
 
 impl HydraInstance {
@@ -18,6 +19,7 @@ pub struct HydraInstanceBuilder {
     project: String,
     jobset: Option<String>,
     build: Option<u64>,
+    eval: Option<u64>,
 }
 
 impl HydraInstanceBuilder {
@@ -27,6 +29,7 @@ impl HydraInstanceBuilder {
             project: String::from("nixos"),
             jobset: None,
             build: None,
+            eval: None,
         }
     }
 
@@ -45,6 +48,11 @@ impl HydraInstanceBuilder {
         self
     }
 
+    pub fn eval(mut self, eval: u64) -> HydraInstanceBuilder {
+        self.eval = Some(eval);
+        self
+    }
+
     pub fn build_id(mut self, build: u64) -> HydraInstanceBuilder {
         self.build = Some(build);
         self
@@ -56,6 +64,7 @@ impl HydraInstanceBuilder {
             project: self.project,
             jobset: self.jobset,
             build: self.build,
+            eval: self.eval,
         }
     }
 }
@@ -67,6 +76,7 @@ fn builder_test_default() {
         project: String::from("nixos"),
         jobset: None,
         build: None,
+        eval: None,
     };
     let nixpkgs_from_builder = HydraInstanceBuilder::new().build();
     assert_eq!(nixpkgs, nixpkgs_from_builder);
@@ -79,6 +89,7 @@ fn builder_test_jobset() {
         project: String::from("nixos"),
         jobset: Some(String::from("unstable-small")),
         build: None,
+        eval: None,
     };
     let nixpkgs_from_builder = HydraInstanceBuilder::new()
         .jobset(String::from("unstable-small"))
@@ -93,8 +104,22 @@ fn builder_test_build() {
         project: String::from("nixos"),
         jobset: None,
         build: Some(2),
+        eval: None,
     };
     let nixpkgs_from_builder = HydraInstanceBuilder::new().build_id(2).build();
+    assert_eq!(nixpkgs, nixpkgs_from_builder);
+}
+
+#[test]
+fn builder_test_eval() {
+    let nixpkgs = HydraInstance {
+        hydra_url: String::from("https://hydra.nixos.org"),
+        project: String::from("nixos"),
+        jobset: None,
+        build: None,
+        eval: Some(6),
+    };
+    let nixpkgs_from_builder = HydraInstanceBuilder::new().eval(6).build();
     assert_eq!(nixpkgs, nixpkgs_from_builder);
 }
 
@@ -105,6 +130,7 @@ fn builder_test_custom_url() {
         project: String::from("nixos"),
         jobset: None,
         build: None,
+        eval: None,
     };
     let nixpkgs_from_builder = HydraInstanceBuilder::new()
         .hydra_url(String::from("https://hydra.alicehuston.xyz"))
@@ -119,6 +145,7 @@ fn builder_test_custom_project() {
         project: String::from("nixpkgs"),
         jobset: None,
         build: None,
+        eval: None,
     };
     let nixpkgs_from_builder = HydraInstanceBuilder::new()
         .project(String::from("nixpkgs"))

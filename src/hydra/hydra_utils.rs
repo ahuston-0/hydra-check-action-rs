@@ -1,4 +1,7 @@
-use reqwest::{header::ACCEPT,blocking::{Client,Response}};
+use reqwest::{
+    blocking::{Client, Response},
+    header::ACCEPT,
+};
 
 use super::hydra_api_schema::Result;
 

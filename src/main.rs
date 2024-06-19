@@ -1,4 +1,4 @@
-use hydra_check_action_rs::hydra::{hydra_api,hydra_simple, hydra_builder::HydraInstanceBuilder};
+use hydra_check_action_rs::hydra::{hydra_api, hydra_builder::HydraInstanceBuilder, hydra_simple};
 use std::env;
 use std::fs::write;
 use std::process::exit;
@@ -35,9 +35,14 @@ fn main() {
 
     println!("jobset {} for project {}", body[0].name, body[0].project);
 
-    let body = hydra_simple::get_jobset_evals_paginated(&hydra_instance,0,None);
+    let body = hydra_simple::get_jobset_evals_paginated(&hydra_instance, 0, None);
 
-    println!("{} evals for project {} jobset {}",body.len(), hydra_instance.project, hydra_instance.jobset.unwrap());
+    println!(
+        "{} evals for project {} jobset {}",
+        body.len(),
+        hydra_instance.project,
+        hydra_instance.jobset.unwrap()
+    );
     // error!("{:#?}",body);
     // let _ = write(github_output_path, format!("hi"));
 }
