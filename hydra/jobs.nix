@@ -12,6 +12,8 @@ let
     ) pkgs;
 in
 {
-  inherit (outputs) formatter devShells checks;
-  pkgs = lib.mapAttrs filterValidPkgs outputs.packages;
+  formatter = outputs.formatter.x86_64-linux;
+  devShells = outputs.devShells.x86_64-linux;
+  checks = outputs.checks.x86_64-linux;
+  pkgs = lib.mapAttrs filterValidPkgs outputs.packages.x86_64-linux;
 }
