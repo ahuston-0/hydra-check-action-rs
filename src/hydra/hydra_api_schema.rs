@@ -100,47 +100,47 @@ pub struct HydraEvalPaginated {
     pub evals: Vec<HydraEval>,
 }
 
-#[derive(Deserialize)]
+#[derive(Debug, Deserialize)]
 pub struct HydraBuildProduct {
-    filesize: Option<u64>,
-    defaultpath: String,
-    name: String,
+    pub filesize: Option<u64>,
+    pub defaultpath: String,
+    pub name: String,
     #[serde(alias = "type")]
-    buildtype: String,
-    sha256hash: Option<String>,
-    subtype: String,
-    path: String,
+    pub buildtype: String,
+    pub sha256hash: Option<String>,
+    pub subtype: String,
+    pub path: String,
 }
 
-#[derive(Deserialize)]
+#[derive(Debug, Deserialize)]
 pub struct HydraBuildOutput {
-    path: String,
+    pub path: String,
 }
 
-#[derive(Deserialize)]
+#[derive(Debug, Deserialize)]
 pub struct HydraBuildMetrics {
-    name: String,
-    value: String,
-    unit: String,
+    pub name: String,
+    pub value: String,
+    pub unit: String,
 }
 
-#[derive(Deserialize)]
+#[derive(Debug, Deserialize)]
 pub struct HydraBuild {
-    buildproducts: HashMap<String, HydraBuildProduct>,
-    id: u64,
-    buildstatus: u64,
-    nixname: String,
-    finished: u64,
-    jobsetevals: Vec<u64>,
-    stoptime: Option<u64>,
-    system: String,
-    drvpath: String,
-    buildoutputs: HashMap<String, HydraBuildOutput>,
-    job: String,
-    jobset: String,
-    buildmetrics: HashMap<String, HydraBuildMetrics>,
-    priority: u64,
-    project: String,
-    starttime: u64,
-    timestamp: u64,
+    pub buildproducts: HashMap<String, HydraBuildProduct>,
+    pub id: u64,
+    pub buildstatus: u64,
+    pub nixname: String,
+    pub finished: u8,
+    pub jobsetevals: Vec<u64>,
+    pub stoptime: Option<u64>,
+    pub system: String,
+    pub drvpath: String,
+    pub buildoutputs: HashMap<String, HydraBuildOutput>,
+    pub job: String,
+    pub jobset: String,
+    pub buildmetrics: HashMap<String, HydraBuildMetrics>,
+    pub priority: u64,
+    pub project: String,
+    pub starttime: u64,
+    pub timestamp: u64,
 }

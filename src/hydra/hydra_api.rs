@@ -84,7 +84,7 @@ pub fn get_jobset_evals(hydra_instance: &HydraInstance) -> Result<HydraEvalPagin
     }
 }
 
-pub fn get_build_by_eval(hydra_instance: HydraInstance) -> Result<Vec<HydraBuild>> {
+pub fn get_build_by_eval(hydra_instance: &HydraInstance) -> Result<Vec<HydraBuild>> {
     let resp = get_wrapper(
         format!(
             "{}/eval/{}/builds",
@@ -102,7 +102,7 @@ pub fn get_build_by_eval(hydra_instance: HydraInstance) -> Result<Vec<HydraBuild
     }
 }
 
-pub fn get_build(hydra_instance: HydraInstance) -> Result<HydraBuild> {
+pub fn get_build(hydra_instance: &HydraInstance) -> Result<HydraBuild> {
     let resp = get_wrapper(
         format!(
             "{}/build/{}",
