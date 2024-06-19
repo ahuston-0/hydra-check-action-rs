@@ -1,10 +1,10 @@
 use reqwest::{
     blocking::{Client, Response},
     header::ACCEPT,
-    Result, StatusCode,
+    StatusCode,
 };
 
-use super::hydra_api_schema::{HydraJobset, HydraProject};
+use super::hydra_api_schema::{HydraJobset, HydraProject, Result};
 use super::hydra_builder::HydraInstance;
 
 fn get_wrapper(url: &str) -> Result<Response> {
@@ -21,18 +21,19 @@ pub fn get_projects(hydra_instance: &HydraInstance) -> Result<Vec<HydraProject>>
 }
 
 pub fn get_jobsets(hydra_instance: &HydraInstance) -> Result<Vec<HydraJobset>> {
-    let resp  = get_wrapper(
+    let resp = get_wrapper(
         format!(
             "{}/api/jobsets?project={}",
             hydra_instance.hydra_url, hydra_instance.project
         )
         .as_str(),
-    ).unwrap();
+    )
+    .unwrap();
 
     match resp.status() {
-        StatusCode::OK => resp.json::<Vec<HydraJobset>>(),
-        StatusCode::NOT_FOUND => reqwest::Error(resp),
-        _ => panic!("Status code not expected")
+        StatusCode::OK => Ok(resp.json::<Vec<HydraJobset>>().unwrap()),
+        StatusCode::NOT_FOUND => Err(resp.error_for_status().err().unwrap()),
+        _ => panic!("Status code not expected"),
     }
 }
 
@@ -43,12 +44,13 @@ pub fn get_project_by_name(hydra_instance: HydraInstance) -> Result<HydraJobset>
             hydra_instance.hydra_url, hydra_instance.project
         )
         .as_str(),
-    ).unwrap();
+    )
+    .unwrap();
 
     match resp.status() {
-        StatusCode::OK => resp.json::<HydraJobset>(),
-        StatusCode::NOT_FOUND => reqwest::Error(resp),
-        _ => panic!("Status code not expected")
+        StatusCode::OK => Ok(resp.json::<HydraJobset>().unwrap()),
+        StatusCode::NOT_FOUND => Err(resp.error_for_status().err().unwrap()),
+        _ => panic!("Status code not expected"),
     }
 }
 
