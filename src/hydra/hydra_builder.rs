@@ -13,7 +13,7 @@ impl HydraInstance {
     }
 }
 
-#[derive(Default)]
+#[derive(Clone, Default)]
 pub struct HydraInstanceBuilder {
     hydra_url: String,
     project: String,

@@ -18,11 +18,12 @@ fn main() {
         }
     }
 
-    let hydra_instance = HydraInstanceBuilder::new()
+    let hydra_instance_builder = HydraInstanceBuilder::new()
         .hydra_url(String::from("https://hydra.alicehuston.xyz"))
         .project(String::from("nix-dotfiles-build"))
-        .jobset(String::from("branch-main"))
-        .build();
+        .jobset(String::from("branch-main"));
+
+    let hydra_instance = hydra_instance_builder.clone().build();
 
     let body = hydra_api::get_projects(&hydra_instance).unwrap();
 
@@ -35,14 +36,26 @@ fn main() {
 
     println!("jobset {} for project {}", body[0].name, body[0].project);
 
-    let body = hydra_simple::get_jobset_evals_paginated(&hydra_instance, 0, None);
+    let evals = hydra_simple::get_jobset_evals_paginated(&hydra_instance, 0, None);
 
     println!(
         "{} evals for project {} jobset {}",
-        body.len(),
+        evals.len(),
         hydra_instance.project,
-        hydra_instance.jobset.unwrap()
+        hydra_instance.jobset.as_ref().unwrap()
     );
-    // error!("{:#?}",body);
+
+    let max_eval = evals.into_iter().max_by_key(|x| x.id).unwrap();
+
+    let builds =
+        hydra_api::get_build_by_eval(&(hydra_instance_builder.clone().eval(max_eval.id).build()))
+            .unwrap()
+            .into_iter()
+            .map(|build| build.id)
+            .collect();
+
+    let builds = hydra_simple::poll_builds(&hydra_instance_builder.eval(max_eval.id), builds, 600);
+
+    print!("{:#?}", builds);
     // let _ = write(github_output_path, format!("hi"));
 }
