@@ -9,8 +9,8 @@ license = "MIT"
 [dependencies]
 log = "0.4.21"
 reqwest = { version = "0.12.4", features = ["blocking", "json"] }
-simple_logger = "5.0.0"
-tracing = "0.1.40"
+serde = { version = "1.0.203", features = ["derive"] }
+tracing = { version = "0.1.40", features = ["log"] }
 tracing-subscriber = "0.3.18"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
