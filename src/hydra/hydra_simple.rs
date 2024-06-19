@@ -9,7 +9,7 @@ pub fn get_jobset_evals_paginated(
     last: Option<u64>,
 ) -> Vec<HydraEval> {
     let initial = get_jobset_evals(&hydra_instance.clone()).unwrap();
-    let initial_last = initial.last.split("=").last().unwrap();
+    let initial_last = initial.last.split('=').last().unwrap();
 
     let last_page = last
         .or_else(|| Some(initial_last.parse::<u64>().unwrap()))

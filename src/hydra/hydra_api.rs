@@ -1,7 +1,7 @@
-use reqwest::{blocking::Response, StatusCode};
+use reqwest::StatusCode;
 
 use super::hydra_api_schema::{
-    HydraBuild, HydraEvalPaginated, HydraJobset, HydraJobsetDetails, HydraProject, Result
+    HydraBuild, HydraEvalPaginated, HydraJobset, HydraJobsetOverview, HydraProject, Result,
 };
 use super::hydra_builder::HydraInstance;
 use super::hydra_utils::get_wrapper;
@@ -12,7 +12,7 @@ pub fn get_projects(hydra_instance: &HydraInstance) -> Result<Vec<HydraProject>>
         .json::<Vec<HydraProject>>()
 }
 
-pub fn get_jobsets(hydra_instance: &HydraInstance) -> Result<Vec<HydraJobset>> {
+pub fn get_jobsets(hydra_instance: &HydraInstance) -> Result<Vec<HydraJobsetOverview>> {
     let resp = get_wrapper(
         format!(
             "{}/api/jobsets?project={}",
@@ -23,13 +23,13 @@ pub fn get_jobsets(hydra_instance: &HydraInstance) -> Result<Vec<HydraJobset>> {
     .unwrap();
 
     match resp.status() {
-        StatusCode::OK => Ok(resp.json::<Vec<HydraJobset>>().unwrap()),
+        StatusCode::OK => Ok(resp.json::<Vec<HydraJobsetOverview>>().unwrap()),
         StatusCode::NOT_FOUND => Err(resp.error_for_status().err().unwrap()),
         _ => panic!("Status code not expected"),
     }
 }
 
-pub fn get_project_by_name(hydra_instance: &HydraInstance) -> Result<HydraJobset> {
+pub fn get_project_by_name(hydra_instance: &HydraInstance) -> Result<HydraProject> {
     let resp = get_wrapper(
         format!(
             "{}/projects/{}",
@@ -40,13 +40,13 @@ pub fn get_project_by_name(hydra_instance: &HydraInstance) -> Result<HydraJobset
     .unwrap();
 
     match resp.status() {
-        StatusCode::OK => Ok(resp.json::<HydraJobset>().unwrap()),
+        StatusCode::OK => Ok(resp.json::<HydraProject>().unwrap()),
         StatusCode::NOT_FOUND => Err(resp.error_for_status().err().unwrap()),
         _ => panic!("Status code not expected"),
     }
 }
 
-pub fn get_jobset(hydra_instance: &HydraInstance) -> Result<HydraJobsetDetails> {
+pub fn get_jobset(hydra_instance: &HydraInstance) -> Result<HydraJobset> {
     let resp = get_wrapper(
         format!(
             "{}/jobset/{}/{}",
@@ -59,7 +59,7 @@ pub fn get_jobset(hydra_instance: &HydraInstance) -> Result<HydraJobsetDetails> 
     .unwrap();
 
     match resp.status() {
-        StatusCode::OK => Ok(resp.json::<HydraJobsetDetails>().unwrap()),
+        StatusCode::OK => Ok(resp.json::<HydraJobset>().unwrap()),
         StatusCode::NOT_FOUND => Err(resp.error_for_status().err().unwrap()),
         _ => panic!("Status code not expected"),
     }
