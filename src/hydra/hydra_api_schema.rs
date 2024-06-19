@@ -4,7 +4,7 @@ use serde::Deserialize;
 
 pub type Result<T> = std::result::Result<T, reqwest::Error>;
 
-#[derive(Deserialize)]
+#[derive(Debug,Deserialize)]
 pub struct HydraProject {
     pub displayname: String,
     pub description: String,
@@ -16,7 +16,7 @@ pub struct HydraProject {
     pub name: String,
 }
 
-#[derive(Deserialize)]
+#[derive(Debug,Deserialize)]
 pub struct HydraJobset {
     pub name: String,
     pub project: String,
@@ -32,12 +32,12 @@ pub struct HydraJobset {
     pub triggertime: Option<u64>,
 }
 
-#[derive(Deserialize)]
+#[derive(Debug,Deserialize)]
 pub struct HydraError {
     pub error: String,
 }
 
-#[derive(Deserialize)]
+#[derive(Debug,Deserialize)]
 pub struct HydraJobsetInput {
     #[serde(alias = "type")]
     pub inputtype: String,
@@ -46,7 +46,7 @@ pub struct HydraJobsetInput {
     pub jobsetinputalts: Vec<String>,
 }
 
-#[derive(Deserialize)]
+#[derive(Debug,Deserialize)]
 pub struct HydraJobsetDetails {
     pub triggertime: Option<u64>,
     pub enableemail: bool,
@@ -70,4 +70,32 @@ pub struct HydraJobsetDetails {
     pub keepnr: u64,
     pub nixexprpath: String,
     pub errortime: Option<u64>,
+}
+
+#[derive(Debug,Deserialize)]
+pub struct HydraEvalInput {
+    #[serde(alias = "type")]
+    pub inputtype: String,
+    pub uri: String,
+    pub revision: String,
+
+    // cannot find any record of a type for these two fields... need to investigate
+    pub dependency: Option<()>,
+    pub value: Option<()>,
+}
+
+#[derive(Debug,Deserialize)]
+pub struct HydraEval {
+    pub builds: Vec<u64>,
+    pub jobsetevalinputs: HashMap<String, HydraEvalInput>,
+    pub id: u64,
+    pub hasnewbuilds: u8,
+}
+
+#[derive(Debug,Deserialize)]
+pub struct HydraEvalPaginated {
+    pub first: String,
+    pub last: String,
+    pub next: Option<String>,
+    pub evals: Vec<HydraEval>,
 }

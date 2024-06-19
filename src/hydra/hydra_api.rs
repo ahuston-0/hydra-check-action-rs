@@ -1,18 +1,12 @@
 use reqwest::{
-    blocking::{Client, Response},
-    header::ACCEPT,
+    blocking::Response,
     StatusCode,
 };
 
-use super::hydra_api_schema::{HydraJobset, HydraProject, Result};
+use super::hydra_api_schema::{HydraEvalPaginated, HydraJobset, HydraJobsetDetails, HydraProject, Result};
 use super::hydra_builder::HydraInstance;
+use super::hydra_utils::get_wrapper;
 
-fn get_wrapper(url: &str) -> Result<Response> {
-    Client::new()
-        .get(url)
-        .header(ACCEPT, "application/json")
-        .send()
-}
 
 pub fn get_projects(hydra_instance: &HydraInstance) -> Result<Vec<HydraProject>> {
     get_wrapper(hydra_instance.hydra_url.as_str())
@@ -37,7 +31,7 @@ pub fn get_jobsets(hydra_instance: &HydraInstance) -> Result<Vec<HydraJobset>> {
     }
 }
 
-pub fn get_project_by_name(hydra_instance: HydraInstance) -> Result<HydraJobset> {
+pub fn get_project_by_name(hydra_instance: &HydraInstance) -> Result<HydraJobset> {
     let resp = get_wrapper(
         format!(
             "{}/projects/{}",
@@ -54,42 +48,43 @@ pub fn get_project_by_name(hydra_instance: HydraInstance) -> Result<HydraJobset>
     }
 }
 
-pub fn get_jobset(hydra_instance: HydraInstance) -> Result<Response> {
-    get_wrapper(
+pub fn get_jobset(hydra_instance: &HydraInstance) -> Result<HydraJobsetDetails> {
+    let resp = get_wrapper(
         format!(
             "{}/jobset/{}/{}",
             hydra_instance.hydra_url,
             hydra_instance.project,
-            hydra_instance.jobset.unwrap()
+            hydra_instance.jobset.as_ref().unwrap()
         )
         .as_str(),
     )
+    .unwrap();
+
+    match resp.status() {
+        StatusCode::OK => Ok(resp.json::<HydraJobsetDetails>().unwrap()),
+        StatusCode::NOT_FOUND => Err(resp.error_for_status().err().unwrap()),
+        _ => panic!("Status code not expected"),
+    }
 }
 
-pub fn get_jobset_evals(hydra_instance: HydraInstance) -> Result<Response> {
-    get_wrapper(
+pub fn get_jobset_evals(hydra_instance: &HydraInstance) -> Result<HydraEvalPaginated> {
+    let resp = get_wrapper(
         format!(
             "{}/jobset/{}/{}/evals",
             hydra_instance.hydra_url,
             hydra_instance.project,
-            hydra_instance.jobset.unwrap()
+            hydra_instance.jobset.as_ref().unwrap()
         )
         .as_str(),
-    )
+    ).unwrap();
+
+    match resp.status() {
+        StatusCode::OK => Ok(resp.json::<HydraEvalPaginated>().unwrap()),
+        StatusCode::NOT_FOUND => Err(resp.error_for_status().err().unwrap()),
+        _ => panic!("Status code not expected"),
+    }
 }
 
-pub fn get_jobset_evals_paginated(hydra_instance: HydraInstance, page: u64) -> Result<Response> {
-    get_wrapper(
-        format!(
-            "{}/jobset/{}/{}/evals?page={}",
-            hydra_instance.hydra_url,
-            hydra_instance.project,
-            hydra_instance.jobset.unwrap(),
-            page
-        )
-        .as_str(),
-    )
-}
 
 pub fn get_build(hydra_instance: HydraInstance) -> Result<Response> {
     get_wrapper(
