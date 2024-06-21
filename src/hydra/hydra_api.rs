@@ -32,7 +32,7 @@ pub fn get_jobsets(hydra_instance: &HydraInstance) -> Result<Vec<HydraJobsetOver
 pub fn get_project_by_name(hydra_instance: &HydraInstance) -> Result<HydraProject> {
     let resp = get_wrapper(
         format!(
-            "{}/projects/{}",
+            "{}/project/{}",
             hydra_instance.hydra_url, hydra_instance.project
         )
         .as_str(),
