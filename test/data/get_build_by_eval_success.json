@@ -1,0 +1,287 @@
+[
+  {
+    "buildmetrics": {},
+    "buildoutputs": {
+      "out": {
+        "path": "/nix/store/rl78jqi62sbhi0c9x46iafkk54x3ph8y-nix-shell"
+      }
+    },
+    "buildproducts": {},
+    "buildstatus": 0,
+    "drvpath": "/nix/store/9x4vvipj56i4xv1j3z727jk35kpjlf0r-nix-shell.drv",
+    "finished": 1,
+    "id": 6225,
+    "job": "devShells.x86_64-linux.default",
+    "jobset": "branch-main",
+    "jobsetevals": [
+      260362,
+      260395,
+      260449,
+      261599
+    ],
+    "nixname": "nix-shell",
+    "priority": 100,
+    "project": "nix-dotfiles-build",
+    "releasename": null,
+    "starttime": 1718814667,
+    "stoptime": 1718814667,
+    "system": "x86_64-linux",
+    "timestamp": 1718814667
+  },
+  {
+    "buildmetrics": {},
+    "buildoutputs": {
+      "out": {
+        "path": "/nix/store/fm9i9vga8bfw7ha8vyr9p7yf7aas6fg8-nixos-system-artemision-24.11.20240619.31a1316"
+      }
+    },
+    "buildproducts": {
+      "1": {
+        "defaultpath": "",
+        "filesize": null,
+        "name": "nixos-system-artemision-24.11.20240619.31a1316",
+        "path": "/nix/store/fm9i9vga8bfw7ha8vyr9p7yf7aas6fg8-nixos-system-artemision-24.11.20240619.31a1316",
+        "sha256hash": null,
+        "subtype": "",
+        "type": "nix-build"
+      }
+    },
+    "buildstatus": 0,
+    "drvpath": "/nix/store/c8jfkszxr17h052zy5ssss87mdyhxn0d-nixos-system-artemision-24.11.20240619.31a1316.drv",
+    "finished": 1,
+    "id": 6435,
+    "job": "hosts.artemision",
+    "jobset": "branch-main",
+    "jobsetevals": [
+      261599
+    ],
+    "nixname": "nixos-system-artemision-24.11.20240619.31a1316",
+    "priority": 100,
+    "project": "nix-dotfiles-build",
+    "releasename": null,
+    "starttime": 1718839626,
+    "stoptime": 1718839626,
+    "system": "x86_64-linux",
+    "timestamp": 1718839626
+  },
+  {
+    "buildmetrics": {},
+    "buildoutputs": {
+      "out": {
+        "path": "/nix/store/jhgr4vdkw2f87ji6gk3in35jh829wk28-nixos-system-jeeves-24.11.20240619.31a1316"
+      }
+    },
+    "buildproducts": {
+      "1": {
+        "defaultpath": "",
+        "filesize": null,
+        "name": "nixos-system-jeeves-24.11.20240619.31a1316",
+        "path": "/nix/store/jhgr4vdkw2f87ji6gk3in35jh829wk28-nixos-system-jeeves-24.11.20240619.31a1316",
+        "sha256hash": null,
+        "subtype": "",
+        "type": "nix-build"
+      }
+    },
+    "buildstatus": 0,
+    "drvpath": "/nix/store/nqc9zqj5361h63n1kmyv75183x1zcn9j-nixos-system-jeeves-24.11.20240619.31a1316.drv",
+    "finished": 1,
+    "id": 6434,
+    "job": "hosts.jeeves",
+    "jobset": "branch-main",
+    "jobsetevals": [
+      261599
+    ],
+    "nixname": "nixos-system-jeeves-24.11.20240619.31a1316",
+    "priority": 100,
+    "project": "nix-dotfiles-build",
+    "releasename": null,
+    "starttime": 1718839626,
+    "stoptime": 1718839626,
+    "system": "x86_64-linux",
+    "timestamp": 1718839626
+  },
+  {
+    "buildmetrics": {},
+    "buildoutputs": {
+      "out": {
+        "path": "/nix/store/fkwzw17zrzva3v5b5zbcb4hmb1v16651-nixfmt-unstable-2024-05-28"
+      }
+    },
+    "buildproducts": {
+      "1": {
+        "defaultpath": "",
+        "filesize": null,
+        "name": "nixfmt-unstable-2024-05-28",
+        "path": "/nix/store/fkwzw17zrzva3v5b5zbcb4hmb1v16651-nixfmt-unstable-2024-05-28",
+        "sha256hash": null,
+        "subtype": "",
+        "type": "nix-build"
+      }
+    },
+    "buildstatus": 0,
+    "drvpath": "/nix/store/vxndfg99m709s6pfdfv4fnlx33lh0isg-nixfmt-unstable-2024-05-28.drv",
+    "finished": 1,
+    "id": 5615,
+    "job": "formatter.x86_64-linux",
+    "jobset": "branch-main",
+    "jobsetevals": [
+      244001,
+      260362,
+      260395,
+      260449,
+      261599
+    ],
+    "nixname": "nixfmt-unstable-2024-05-28",
+    "priority": 100,
+    "project": "nix-dotfiles-build",
+    "releasename": null,
+    "starttime": 1718550179,
+    "stoptime": 1718550179,
+    "system": "x86_64-linux",
+    "timestamp": 1718550179
+  },
+  {
+    "buildmetrics": {},
+    "buildoutputs": {
+      "out": {
+        "path": "/nix/store/clpiaqs7aff22192cr9cpijl9nmqjpjq-nixos-system-rhapsody-in-green-24.11.20240619.31a1316"
+      }
+    },
+    "buildproducts": {
+      "1": {
+        "defaultpath": "",
+        "filesize": null,
+        "name": "nixos-system-rhapsody-in-green-24.11.20240619.31a1316",
+        "path": "/nix/store/clpiaqs7aff22192cr9cpijl9nmqjpjq-nixos-system-rhapsody-in-green-24.11.20240619.31a1316",
+        "sha256hash": null,
+        "subtype": "",
+        "type": "nix-build"
+      }
+    },
+    "buildstatus": 0,
+    "drvpath": "/nix/store/mrhx84gv4cskx51p0qjya3ilwws1nqld-nixos-system-rhapsody-in-green-24.11.20240619.31a1316.drv",
+    "finished": 1,
+    "id": 6437,
+    "job": "hosts.rhapsody-in-green",
+    "jobset": "branch-main",
+    "jobsetevals": [
+      261599
+    ],
+    "nixname": "nixos-system-rhapsody-in-green-24.11.20240619.31a1316",
+    "priority": 100,
+    "project": "nix-dotfiles-build",
+    "releasename": null,
+    "starttime": 1718839626,
+    "stoptime": 1718839626,
+    "system": "x86_64-linux",
+    "timestamp": 1718839626
+  },
+  {
+    "buildmetrics": {},
+    "buildoutputs": {
+      "out": {
+        "path": "/nix/store/qcmrb63jazf0a5i9d4brf43zn3qfr5mr-nixos-system-bob-24.11.20240619.31a1316"
+      }
+    },
+    "buildproducts": {
+      "1": {
+        "defaultpath": "",
+        "filesize": null,
+        "name": "nixos-system-bob-24.11.20240619.31a1316",
+        "path": "/nix/store/qcmrb63jazf0a5i9d4brf43zn3qfr5mr-nixos-system-bob-24.11.20240619.31a1316",
+        "sha256hash": null,
+        "subtype": "",
+        "type": "nix-build"
+      }
+    },
+    "buildstatus": 0,
+    "drvpath": "/nix/store/bj2a9712sgjiwaz9gn6pghrq9sl0m31n-nixos-system-bob-24.11.20240619.31a1316.drv",
+    "finished": 1,
+    "id": 6436,
+    "job": "hosts.bob",
+    "jobset": "branch-main",
+    "jobsetevals": [
+      261599
+    ],
+    "nixname": "nixos-system-bob-24.11.20240619.31a1316",
+    "priority": 100,
+    "project": "nix-dotfiles-build",
+    "releasename": null,
+    "starttime": 1718839626,
+    "stoptime": 1718839626,
+    "system": "x86_64-linux",
+    "timestamp": 1718839626
+  },
+  {
+    "buildmetrics": {},
+    "buildoutputs": {
+      "out": {
+        "path": "/nix/store/lcjnn8cbkx2pd32s262wgdj9ypdkl68j-nixos-system-jeeves-jr-24.11.20240619.31a1316"
+      }
+    },
+    "buildproducts": {
+      "1": {
+        "defaultpath": "",
+        "filesize": null,
+        "name": "nixos-system-jeeves-jr-24.11.20240619.31a1316",
+        "path": "/nix/store/lcjnn8cbkx2pd32s262wgdj9ypdkl68j-nixos-system-jeeves-jr-24.11.20240619.31a1316",
+        "sha256hash": null,
+        "subtype": "",
+        "type": "nix-build"
+      }
+    },
+    "buildstatus": 0,
+    "drvpath": "/nix/store/jjpyhi8qpa517z8mp6add66ang9i9zls-nixos-system-jeeves-jr-24.11.20240619.31a1316.drv",
+    "finished": 1,
+    "id": 6433,
+    "job": "hosts.jeeves-jr",
+    "jobset": "branch-main",
+    "jobsetevals": [
+      261599
+    ],
+    "nixname": "nixos-system-jeeves-jr-24.11.20240619.31a1316",
+    "priority": 100,
+    "project": "nix-dotfiles-build",
+    "releasename": null,
+    "starttime": 1718839626,
+    "stoptime": 1718839626,
+    "system": "x86_64-linux",
+    "timestamp": 1718839626
+  },
+  {
+    "buildmetrics": {},
+    "buildoutputs": {
+      "out": {
+        "path": "/nix/store/rd8pg1jdda6b34g2c3p4bzz27j4j2q37-nixos-system-palatine-hill-24.11.20240619.31a1316"
+      }
+    },
+    "buildproducts": {
+      "1": {
+        "defaultpath": "",
+        "filesize": null,
+        "name": "nixos-system-palatine-hill-24.11.20240619.31a1316",
+        "path": "/nix/store/rd8pg1jdda6b34g2c3p4bzz27j4j2q37-nixos-system-palatine-hill-24.11.20240619.31a1316",
+        "sha256hash": null,
+        "subtype": "",
+        "type": "nix-build"
+      }
+    },
+    "buildstatus": 0,
+    "drvpath": "/nix/store/dlwlk2fdf6h01zxh955v2c1zmgba13xb-nixos-system-palatine-hill-24.11.20240619.31a1316.drv",
+    "finished": 1,
+    "id": 6432,
+    "job": "hosts.palatine-hill",
+    "jobset": "branch-main",
+    "jobsetevals": [
+      261599
+    ],
+    "nixname": "nixos-system-palatine-hill-24.11.20240619.31a1316",
+    "priority": 100,
+    "project": "nix-dotfiles-build",
+    "releasename": null,
+    "starttime": 1718839626,
+    "stoptime": 1718839626,
+    "system": "x86_64-linux",
+    "timestamp": 1718839626
+  }
+]

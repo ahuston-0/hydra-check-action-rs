@@ -1,0 +1,26 @@
+{
+  "buildmetrics": {},
+  "buildoutputs": {
+    "out": {
+      "path": "/nix/store/knp74kz3fzl509hwppbwy0i5zicwalg8-hydra-check-action-rs-llvm-cov-0.1.0"
+    }
+  },
+  "buildproducts": {},
+  "buildstatus": 0,
+  "drvpath": "/nix/store/lcxnw2wpsqp2qajzyi0zsb5w6dfdj618-hydra-check-action-rs-llvm-cov-0.1.0.drv",
+  "finished": 1,
+  "id": 6000,
+  "job": "pkgs.my-crate-llvm-coverage.inputDerivation",
+  "jobset": "branch-main",
+  "jobsetevals": [
+    258256
+  ],
+  "nixname": "hydra-check-action-rs-llvm-cov-0.1.0",
+  "priority": 100,
+  "project": "hydra-check-action",
+  "releasename": null,
+  "starttime": 1718781150,
+  "stoptime": 1718781150,
+  "system": "x86_64-linux",
+  "timestamp": 1718781150
+}

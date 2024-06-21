@@ -1,0 +1,376 @@
+{
+  "evals": [
+    {
+      "builds": [
+        6225,
+        6435,
+        6434,
+        5615,
+        6437,
+        6436,
+        6433,
+        6432
+      ],
+      "checkouttime": 0,
+      "evaltime": 100,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=3bab15ecad1c9aef9a500119fe0fd599168ad3e9",
+      "hasnewbuilds": 1,
+      "id": 261599,
+      "jobsetevalinputs": {},
+      "timestamp": 1718839626
+    },
+    {
+      "builds": [
+        6299,
+        6298,
+        6297,
+        6296,
+        5615,
+        6294,
+        6295,
+        6225
+      ],
+      "checkouttime": 0,
+      "evaltime": 202,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=3bd024942f2056ca86a0dc8bdc9836dccc4b7fef",
+      "hasnewbuilds": 1,
+      "id": 260449,
+      "jobsetevalinputs": {},
+      "timestamp": 1718815964
+    },
+    {
+      "builds": [
+        6247,
+        6250,
+        6248,
+        6245,
+        6249,
+        6225,
+        5615,
+        6246
+      ],
+      "checkouttime": 0,
+      "evaltime": 186,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=ca2a1983f67dc84aabc6a7cfca3b425d9c5bc072",
+      "hasnewbuilds": 1,
+      "id": 260395,
+      "jobsetevalinputs": {},
+      "timestamp": 1718815156
+    },
+    {
+      "builds": [
+        6225,
+        6221,
+        6219,
+        5615,
+        6222,
+        6224,
+        6223,
+        6220
+      ],
+      "checkouttime": 0,
+      "evaltime": 83,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=4bcf1555e1d47d0d1a2ea9f16f353990c4b3a0cb",
+      "hasnewbuilds": 1,
+      "id": 260362,
+      "jobsetevalinputs": {},
+      "timestamp": 1718814667
+    },
+    {
+      "builds": [
+        5621,
+        5620,
+        5615,
+        5619,
+        5622,
+        5618,
+        5617,
+        5616
+      ],
+      "checkouttime": 0,
+      "evaltime": 81,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=931ad4332221c175fa556e33115711c7ce618055",
+      "hasnewbuilds": 1,
+      "id": 244001,
+      "jobsetevalinputs": {},
+      "timestamp": 1718550179
+    },
+    {
+      "builds": [
+        5525,
+        3937,
+        5526,
+        5528,
+        5524,
+        5523,
+        3935,
+        5527
+      ],
+      "checkouttime": 0,
+      "evaltime": 81,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=e37ef757ae8c0459d5544ec1393ad1e7f38a5d01",
+      "hasnewbuilds": 1,
+      "id": 236147,
+      "jobsetevalinputs": {},
+      "timestamp": 1718422378
+    },
+    {
+      "builds": [
+        3935,
+        5413,
+        5417,
+        5416,
+        5415,
+        5418,
+        5414,
+        3937
+      ],
+      "checkouttime": 0,
+      "evaltime": 81,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=a4c821394354c1e5153a7247a7e7f74701c45f4f",
+      "hasnewbuilds": 1,
+      "id": 233441,
+      "jobsetevalinputs": {},
+      "timestamp": 1718377775
+    },
+    {
+      "builds": [
+        5263,
+        3937,
+        5267,
+        5264,
+        5266,
+        5262,
+        5265,
+        3935
+      ],
+      "checkouttime": 0,
+      "evaltime": 80,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=425147aa3a8752c260da78e30db15b09311a6878",
+      "hasnewbuilds": 1,
+      "id": 224973,
+      "jobsetevalinputs": {},
+      "timestamp": 1718239689
+    },
+    {
+      "builds": [
+        3935,
+        3937,
+        4934,
+        4937,
+        4938,
+        4936,
+        4933,
+        4935
+      ],
+      "checkouttime": 0,
+      "evaltime": 80,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=d323c88583e22134c233038df2abcf91d6d06986",
+      "hasnewbuilds": 1,
+      "id": 208484,
+      "jobsetevalinputs": {},
+      "timestamp": 1717968961
+    },
+    {
+      "builds": [
+        3937,
+        4667,
+        4663,
+        3935,
+        4665,
+        4664,
+        4666
+      ],
+      "checkouttime": 0,
+      "evaltime": 63,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=d6c4d9bf123f63b625ccd2f6894afc5c57f30da4",
+      "hasnewbuilds": 1,
+      "id": 204009,
+      "jobsetevalinputs": {},
+      "timestamp": 1717896697
+    },
+    {
+      "builds": [
+        4575,
+        3937,
+        4573,
+        4574,
+        3935,
+        4572,
+        4576
+      ],
+      "checkouttime": 0,
+      "evaltime": 67,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=7ef484fa68d2e246246e7e0696cbc393d9ecd8bc",
+      "hasnewbuilds": 1,
+      "id": 202020,
+      "jobsetevalinputs": {},
+      "timestamp": 1717862347
+    },
+    {
+      "builds": [
+        4287,
+        4285,
+        3935,
+        3937,
+        4284,
+        4288,
+        4286
+      ],
+      "checkouttime": 5,
+      "evaltime": 116,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=de3a027ab0c298d64253e4df8e4d457ba01b404e",
+      "hasnewbuilds": 1,
+      "id": 178001,
+      "jobsetevalinputs": {},
+      "timestamp": 1717465767
+    },
+    {
+      "builds": [
+        3938,
+        3933,
+        3936,
+        3937,
+        3934,
+        3935,
+        3932
+      ],
+      "checkouttime": 0,
+      "evaltime": 69,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=16a2f666128607304a3b2653850c20dc19bc8bd2",
+      "hasnewbuilds": 1,
+      "id": 165350,
+      "jobsetevalinputs": {},
+      "timestamp": 1717258856
+    },
+    {
+      "builds": [
+        3912,
+        2480,
+        3911,
+        3908,
+        2868,
+        3909,
+        3910
+      ],
+      "checkouttime": 0,
+      "evaltime": 69,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=80e0319923f5f512470dce30cf56c04c2b258c96",
+      "hasnewbuilds": 1,
+      "id": 165265,
+      "jobsetevalinputs": {},
+      "timestamp": 1717257578
+    },
+    {
+      "builds": [
+        3894,
+        3897,
+        3896,
+        2480,
+        3892,
+        2868,
+        3895
+      ],
+      "checkouttime": 0,
+      "evaltime": 69,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=ac072ce425d8c26abe7c53b1ec2e7c0d75cc6df1",
+      "hasnewbuilds": 1,
+      "id": 165238,
+      "jobsetevalinputs": {},
+      "timestamp": 1717257207
+    },
+    {
+      "builds": [
+        3717,
+        2868,
+        3716,
+        3715,
+        3713,
+        3714,
+        2480
+      ],
+      "checkouttime": 0,
+      "evaltime": 64,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=5a0e4e630a8734d02eee7e52754cd695a4a8ebc3",
+      "hasnewbuilds": 1,
+      "id": 146263,
+      "jobsetevalinputs": {},
+      "timestamp": 1716948379
+    },
+    {
+      "builds": [
+        3700,
+        3699,
+        3703,
+        3702,
+        2868,
+        2480,
+        3701
+      ],
+      "checkouttime": 0,
+      "evaltime": 65,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=f77a2ca8ffc8a97c7a7711963d45b254ce53a0dc",
+      "hasnewbuilds": 1,
+      "id": 146238,
+      "jobsetevalinputs": {},
+      "timestamp": 1716948012
+    },
+    {
+      "builds": [
+        3687,
+        2480,
+        3686,
+        3688,
+        3685,
+        3689,
+        2868
+      ],
+      "checkouttime": 0,
+      "evaltime": 65,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=4815df94f2a948cfaf155dd8abab9db6e70cdea3",
+      "hasnewbuilds": 1,
+      "id": 145988,
+      "jobsetevalinputs": {},
+      "timestamp": 1716944019
+    },
+    {
+      "builds": [
+        3512,
+        3511,
+        3510,
+        3509,
+        2868,
+        2480,
+        3508
+      ],
+      "checkouttime": 0,
+      "evaltime": 66,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=b143a2f948a5717b719bebd84854bb75bb7c8fee",
+      "hasnewbuilds": 1,
+      "id": 141543,
+      "jobsetevalinputs": {},
+      "timestamp": 1716872133
+    },
+    {
+      "builds": [
+        3461,
+        2868,
+        3462,
+        2480,
+        3465,
+        3464,
+        3463
+      ],
+      "checkouttime": 0,
+      "evaltime": 66,
+      "flake": "git+ssh://git@github.com/RAD-Development/nix-dotfiles?ref=refs/heads/main&rev=774e67b73bf18a6822e988d98e376c6ba14f4702",
+      "hasnewbuilds": 1,
+      "id": 140742,
+      "jobsetevalinputs": {},
+      "timestamp": 1716859092
+    }
+  ],
+  "first": "?page=1",
+  "last": "?page=3",
+  "next": "?page=2"
+}
