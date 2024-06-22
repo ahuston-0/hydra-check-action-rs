@@ -1,7 +1,6 @@
 use super::hydra_api::{get_build, get_build_by_eval, get_jobset_evals};
-use super::hydra_api_schema::{HydraBuild, HydraEval, HydraEvalPaginated, Result};
+use super::hydra_api_schema::{HydraBuild, HydraEval, Result};
 use super::hydra_builder::{HydraInstance, HydraInstanceBuilder};
-use super::hydra_utils::get_wrapper;
 use std::time::{Duration, Instant};
 
 pub fn get_jobset_evals_paginated(
@@ -9,28 +8,18 @@ pub fn get_jobset_evals_paginated(
     first: u64,
     last: Option<u64>,
 ) -> Vec<HydraEval> {
-    let initial = get_jobset_evals(hydra_instance).unwrap();
-    let initial_last = initial.last.split('=').last().unwrap();
+    let initial_request = get_jobset_evals(hydra_instance, None).unwrap();
+    let initial_request_last = initial_request.last.split('=').last().unwrap().parse::<u64>().unwrap();
 
-    let last_page = last
-        .or_else(|| Some(initial_last.parse::<u64>().unwrap()))
-        .unwrap();
+    let last_page = match last {
+        None => initial_request_last,
+        Some(val) => std::cmp::max(val, initial_request_last)
+    };
 
     let mut evals = Vec::<HydraEval>::new();
     for page in first..last_page {
         evals.append(
-            &mut get_wrapper(
-                format!(
-                    "{}/jobset/{}/{}/evals?page={}",
-                    hydra_instance.hydra_url,
-                    hydra_instance.project,
-                    hydra_instance.jobset.as_ref().unwrap(),
-                    page
-                )
-                .as_str(),
-            )
-            .unwrap()
-            .json::<HydraEvalPaginated>()
+            &mut get_jobset_evals(hydra_instance, Some(page))
             .unwrap()
             .evals,
         );
